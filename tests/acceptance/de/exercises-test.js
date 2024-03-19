@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { click, fillIn, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'derdiedas/tests/helpers';
 import { setupMirage } from 'ember-cli-mirage/test-support';
+import { a11yAudit } from 'ember-a11y-testing/test-support';
 
 module('Acceptance | de/exercises', function (hooks) {
   setupApplicationTest(hooks);
@@ -9,6 +10,20 @@ module('Acceptance | de/exercises', function (hooks) {
 
   hooks.beforeEach(function () {
     this.server.createList('question', 3);
+  });
+
+  test('page is accessible: exercises', async function (assert) {
+    await visit('/exercises');
+    await a11yAudit();
+
+    assert.ok(true, 'all good');
+  });
+
+  test('page is accessible: exercises/:id', async function (assert) {
+    await visit('/exercises/1');
+    await a11yAudit();
+
+    assert.ok(true, 'all good');
   });
 
   test('visiting /exercises', async function (assert) {
