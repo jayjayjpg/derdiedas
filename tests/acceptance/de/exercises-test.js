@@ -55,7 +55,7 @@ module('Acceptance | de/exercises', function (hooks) {
 
     assert.strictEqual(currentURL(), '/exercises/1');
 
-    await click('[data-test-exercise-exit]');
+    await click('[data-test-exercise-go-back-home]');
 
     assert.strictEqual(currentURL(), '/');
     assert.dom('[data-test-question-form-prompt]').doesNotExist();
@@ -153,7 +153,7 @@ module('Acceptance | de/exercises', function (hooks) {
 
     assert.strictEqual(currentURL(), '/exercises/2');
 
-    await click('[data-test-exercise-exit]');
+    await click('[data-test-exercise-go-back-home]');
 
     assert.strictEqual(currentURL(), '/');
 

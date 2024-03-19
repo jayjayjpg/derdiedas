@@ -1,7 +1,5 @@
 {{page-title "Exercise"}}
 
-<button type="button" {{on "click" this.exit}} data-test-exercise-exit>Exit</button>
-
 <QuestionForm
   @question={{@model}}
   @onChange={{this.changePrompt}}
@@ -12,6 +10,13 @@
 
 {{#if this.showSolution}}
   {{#unless this.isFinished}}
-    <LinkTo @route="exercises.exercise" @model={{this.practiceSession.currentQuestionId}} data-test-exercise-next>Next</LinkTo>
+    <div class="basis-1/4 text-center mt-8">
+      <LinkTo
+        class="bg-cerise hover:bg-fuchsia-700 focus:bg-fuchsia-700 hover:bg-fuchsia-900 text-zinc-900 font-semibold rounded-md p-2
+        text-center"
+        @route="exercises.exercise"
+        @model={{this.practiceSession.currentQuestionId}}
+        data-test-exercise-next>Next</LinkTo>
+    </div>
   {{/unless}}
 {{/if}}

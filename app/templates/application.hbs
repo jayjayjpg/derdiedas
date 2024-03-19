@@ -1,3 +1,15 @@
 {{page-title "Der Die Das - Practice declination of German nouns"}}
 
-{{outlet}}
+<div class="h-screen bg-zinc-50">
+<header>
+  {{#if this.showNavBar}}
+    <nav class="flex flex-row space-x-4 p-4 bg-fuchsia-200">
+      <h1><LinkTo class="basis-4 text-lg font-bold text-zinc-900" @route="index" data-test-navigation-home>DerDieDas | Home</LinkTo></h1>
+      <LinkTo class="basis-36 text-lg font-bold text-zinc-900" @route="exercises.index" data-test-navigation-exercise-de>German Practice</LinkTo>
+    </nav>
+  {{/if}}
+</header>
+<main class="px-8">
+  {{outlet}}
+</main>
+</div>
