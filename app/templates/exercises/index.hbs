@@ -1,0 +1,26 @@
+{{page-title "Index"}}
+
+  <LinkTo @route="index" data-test-exercise-go-back-home>Go back home</LinkTo>
+  <section data-test-exercise-primer>
+    <h1>German articles</h1>
+
+    <p>Practice using definite and indefinite German articles</p>
+    <article>
+      <h2>What are German articles?</h2>
+      <p></p>
+    </article>
+    <article>
+      <h2>Definite articles: der, die, das</h2>
+      <p></p>
+    </article>
+    <article>
+      <h2>Indefinite articles: ein, eine</h2>
+      <p></p>
+    </article>
+    <article>
+      <h2>Declination tables</h2>
+      <p></p>
+    </article>
+  </section>
+  <LinkTo @route="exercises.exercise" @model={{this.practiceSession.currentQuestionId}} data-test-exercise-start>Start</LinkTo>
+{{outlet}}

@@ -1,0 +1,17 @@
+{{page-title "Exercise"}}
+
+<button type="button" {{on "click" this.exit}} data-test-exercise-exit>Exit</button>
+
+<QuestionForm
+  @question={{@model}}
+  @onChange={{this.changePrompt}}
+  @onSubmit={{this.submit}}
+  @showSolution={{this.showSolution}}
+  @promptAnswer={{this.promptAnswer}}
+/>
+
+{{#if this.showSolution}}
+  {{#unless this.isFinished}}
+    <LinkTo @route="exercises.exercise" @model={{this.practiceSession.currentQuestionId}} data-test-exercise-next>Next</LinkTo>
+  {{/unless}}
+{{/if}}

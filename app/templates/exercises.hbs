@@ -1,0 +1,8 @@
+{{page-title "Exercises"}}
+
+{{outlet}}
+
+{{#if this.practiceSession.isLast}}
+   <p data-test-exercise-score>{{this.formattedScore}}</p>
+   <button type="button" {{on "click" this.finish}} data-test-exercise-finish>Done!</button>
+{{/if}}

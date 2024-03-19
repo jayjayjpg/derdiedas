@@ -1,0 +1,21 @@
+<section data-test-question-form>
+  <p data-test-question-form-prompt>
+    {{get this.questionPrompt "0"}}
+    <Input @value={{@promptAnswer}} disabled={{@showSolution}} onInput={{@onChange}} data-test-question-form-input />
+    {{get this.questionPrompt "1"}}
+  </p>
+  <p data-test-question-form-hint>Use <b>{{if @question.definedArticle "der/die/das..." "ein/eine..."}}</b></p>
+  <button disabled={{this.isFormDisabled}} type="button" {{on "click" this.submit}} data-test-question-form-submit>Checkmark</button>
+
+  {{#if @showSolution}}
+    <p data-test-question-form-correct-answer>{{@question.fullAnswer}}</p>
+    {{#if @question.isCorrect}}
+      <p data-test-question-form-success>Checkmark</p>
+    {{else}}
+      <p data-test-question-form-difference>
+        <span style="background-color: #dd2222; font-style: strikethrough" data-test-question-form-difference-current>{{@question.userAnswer}}</span>
+        <span style="background-color: #22eedd; font-style: bold" data-test-question-form-difference-expected>{{@question.answer}}</span>
+      </p>
+    {{/if}}
+  {{/if}}
+  </section>
