@@ -41,7 +41,7 @@ function routes() {
 
     https://miragejs.com/docs/getting-started/overview/
   */
-  this.get('/questions', (schema, request) => {
+  this.get('/questions', (schema) => {
     return schema.questions.all();
   });
 

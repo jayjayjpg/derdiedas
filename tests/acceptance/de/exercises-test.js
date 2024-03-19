@@ -7,7 +7,7 @@ module('Acceptance | de/exercises', function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(function () {
     this.server.createList('question', 3);
   });
 
@@ -18,17 +18,6 @@ module('Acceptance | de/exercises', function (hooks) {
     assert.dom('[data-test-exercise-go-back-home]').exists();
     assert.dom('[data-test-exercise-primer]').exists();
     assert.dom('[data-test-exercise-start]').exists();
-  });
-
-  test('a user can start the practice session', async function (assert) {
-    await visit('/exercises');
-
-    assert.strictEqual(currentURL(), '/exercises');
-
-    await click('[data-test-exercise-start]');
-
-    assert.strictEqual(currentURL(), '/exercises/1');
-    assert.dom('[data-test-question-form-prompt]').exists();
   });
 
   test('a user can start the practice session', async function (assert) {
@@ -79,7 +68,9 @@ module('Acceptance | de/exercises', function (hooks) {
     await fillIn('[data-test-question-form-input]', 'das');
     await click('[data-test-question-form-submit]');
 
-    assert.dom('[data-test-question-form-correct-answer]').includesText('Ich gehe in das Haus');
+    assert
+      .dom('[data-test-question-form-correct-answer]')
+      .includesText('Ich gehe in das Haus');
     assert.dom('[data-test-question-form-success]').exists();
     assert.dom('[data-test-question-form-difference]').doesNotExist();
   });
@@ -93,11 +84,17 @@ module('Acceptance | de/exercises', function (hooks) {
     await fillIn('[data-test-question-form-input]', 'foo');
     await click('[data-test-question-form-submit]');
 
-    assert.dom('[data-test-question-form-correct-answer]').includesText('Ich gehe in das Haus')
+    assert
+      .dom('[data-test-question-form-correct-answer]')
+      .includesText('Ich gehe in das Haus');
     assert.dom('[data-test-question-form-success]').doesNotExist();
     assert.dom('[data-test-question-form-difference]').exists();
-    assert.dom('[data-test-question-form-difference-current]').includesText('foo');
-    assert.dom('[data-test-question-form-difference-expected]').includesText('das');
+    assert
+      .dom('[data-test-question-form-difference-current]')
+      .includesText('foo');
+    assert
+      .dom('[data-test-question-form-difference-expected]')
+      .includesText('das');
   });
 
   test('a user can finish a practice session', async function (assert) {

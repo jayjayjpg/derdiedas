@@ -6,7 +6,7 @@ export default class ExercisesExerciseRoute extends Route {
   @service practiceSession;
 
   model(params) {
-    return this.store.peekRecord('question', params.exerciseId);
+    return this.store.peekRecord('question', params.exercise_id);
   }
 
   resetController(controller, model) {
