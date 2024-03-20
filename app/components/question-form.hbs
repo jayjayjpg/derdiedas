@@ -12,7 +12,10 @@
         class="w-20 text-center rounded-md bg-fuchsia-50 focus:bg-white hover:bg-fuchsia-100
         border border-sm border-cerise
         disabled:bg-zinc-200 disabled:text-zinc-600 disabled:border-zinc-400"
-        id={{this.formId}} @value={{@promptAnswer}} disabled={{@showSolution}} onInput={{@onChange}} data-test-question-form-input />
+        id={{this.formId}}
+        @value={{@promptAnswer}} disabled={{@showSolution}}
+        onInput={{@onChange}} onKeyup={{this.submitByKeyboard}}
+        data-test-question-form-input />
       <span>{{get this.questionPrompt "1"}}</span>
     </div>
   </p>

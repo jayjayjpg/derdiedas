@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { isEmpty } from '@ember/utils';
+import { isEmpty, isPresent } from '@ember/utils';
 import { service } from '@ember/service';
 import { guidFor } from '@ember/object/internals';
 
@@ -17,6 +17,12 @@ export default class QuestionFormComponent extends Component {
 
   get isFormDisabled() {
     return isEmpty(this.args.promptAnswer) || this.args.showSolution;
+  }
+
+  @action submitByKeyboard(e) {
+    if (e.keyCode === 13 && isPresent(this.args.promptAnswer)) {
+      this.args.onSubmit();
+    }
   }
 
   @action submit() {

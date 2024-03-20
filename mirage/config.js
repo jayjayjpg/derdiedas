@@ -54,11 +54,10 @@ function routes() {
     appConfig.environment === 'development'
   ) {
     this.get('/questions', (schema) => {
-      let questions = schema.questions.all();
       let selected = [];
 
-      while (selected.length < 5) {
-        var rando = Math.floor(Math.random() * 3) + 1;
+      while (selected.length < 15) {
+        var rando = Math.floor(Math.random() * 120) + 1;
         if (selected.indexOf(rando) === -1) {
           selected.push(rando);
         }

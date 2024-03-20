@@ -30,6 +30,10 @@ export default class ExercisesExerciseController extends Controller {
     this.router.transitionTo('index');
   }
 
+  @action submitByKeyboard() {
+    // console.log({ e });
+  }
+
   @action submit() {
     if (!this.practiceSession.isLast) {
       this.practiceSession.next();
