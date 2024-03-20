@@ -1,9 +1,12 @@
 {{page-title "Index"}}
 
-  <section data-test-exercise-primer>
-    <h1 class="text-2xl font-bold text-zinc-900">German articles</h1>
+  <header>
+    <h1 class="text-3xl font-bold text-zinc-900">German practice</h1>
+  </header>
+  <section class="my-8" data-test-exercise-primer data-test-exercise-definite-articles>
+    <h1 class="text-2xl font-bold text-zinc-900">German definite articles</h1>
 
-    <p class="mt-4 mb-8">Practice using definite and indefinite German articles</p>
+    <p class="mt-4 mb-8">Practice using definite German articles</p>
 
     <div class="px-2 py-4 hidden">
       <article>
@@ -30,6 +33,20 @@
         @model={{this.practiceSession.currentQuestionId}}
         data-test-exercise-start>
         Start
+      </ActionButton>
+    </div>
+  </section>
+  <section data-test-exercise-primer data-test-exercise-indefinite-articles>
+    <h1 class="text-2xl font-bold text-zinc-900">German indefinite articles</h1>
+
+    <p class="mt-4 mb-8">Practice using indefinite German articles</p>
+
+    <div class="mt-4">
+      <ActionButton
+        @onClick={{this.noop}}
+        disabled={{true}}
+        data-test-exercise-beta>
+        Coming Soon
       </ActionButton>
     </div>
   </section>
