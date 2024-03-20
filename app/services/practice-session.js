@@ -10,7 +10,11 @@ export default class PracticeSessionService extends Service {
   }
 
   get currentQuestionId() {
-    return this.questionIds[this.currentId];
+    let existingId = this.questionIds[this.currentId];
+    if (existingId) {
+      return existingId;
+    }
+    return 1;
   }
 
   get numOfQuestions() {

@@ -16,11 +16,10 @@
       <span>{{get this.questionPrompt "1"}}</span>
     </div>
   </p>
-  <button
-    class="bg-cerise hover:bg-fuchsia-700 focus:bg-fuchsia-700 hover:bg-fuchsia-900 disabled:bg-zinc-200
-    text-zinc-900 disabled:text-zinc-500 font-semibold rounded-md p-2"
-    disabled={{this.isFormDisabled}}
-    type="button" {{on "click" this.submit}} data-test-question-form-submit>Check</button>
+
+  <ActionButton @onClick={{this.submit}} disabled={{this.isFormDisabled}} data-test-question-form-submit>
+    Check
+  </ActionButton>
 
   {{#if @showSolution}}
     <div class="flex flex-row mt-8 items-center space-x-2">
@@ -32,10 +31,11 @@
       </span>
       {{#if @question.isCorrect}}
         <div
-        aria-label="Correct!"
-        class="text-azure font-bold rounded-md p-2"
+        class="bg-azure font-bold rounded-full text-white p-2"
         data-test-question-form-success>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-5 h-5">
+            <title>Checkmark</title>
+            <desc>Your answer is correct!</desc>
             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
           </svg>
         </div>

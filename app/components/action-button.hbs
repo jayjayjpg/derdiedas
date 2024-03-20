@@ -1,0 +1,33 @@
+{{#if @onClick}}
+  <button
+    type="button"
+    class="bg-cerise-600 text-white
+    hover:bg-cerise-500 focus:bg-cerise-500 active:bg-cerise-700
+    disabled:text-zinc-500 disabled:bg-zinc-200
+    transition text-center font-semibold rounded-md p-2" {{on "click" @onClick}} ...attributes>
+    {{yield}}
+  </button>
+{{else}}
+  {{#if @model}}
+    <LinkTo
+      class="bg-cerise-600 text-white
+      hover:bg-cerise-500 focus:bg-cerise-500 active:bg-cerise-700
+      disabled:text-zinc-500 disabled:bg-zinc-200
+      transition text-center font-semibold rounded-md p-2"
+      @route={{@route}}
+      @model={{@model}}
+      ...attributes>
+      {{yield}}
+    </LinkTo>
+  {{else}}
+    <LinkTo
+      class="bg-cerise-600 text-white
+      hover:bg-cerise-500 focus:bg-cerise-500 active:bg-cerise-700
+      disabled:text-zinc-500 disabled:bg-zinc-200
+      transition text-center font-semibold rounded-md p-2"
+      @route={{@route}}
+      ...attributes>
+      {{yield}}
+    </LinkTo>
+  {{/if}}
+{{/if}}

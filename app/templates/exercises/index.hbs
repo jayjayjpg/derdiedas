@@ -25,13 +25,12 @@
     </div>
 
     <div class="mt-4">
-      <LinkTo
-        class="bg-cerise hover:bg-fuchsia-700 focus:bg-fuchsia-700 hover:bg-fuchsia-900 text-zinc-900 font-semibold rounded-md p-2"
+      <ActionButton
         @route="exercises.exercise"
         @model={{this.practiceSession.currentQuestionId}}
         data-test-exercise-start>
-          Start
-      </LinkTo>
+        Start
+      </ActionButton>
     </div>
   </section>
 {{outlet}}
