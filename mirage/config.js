@@ -3,6 +3,7 @@ import {
   // applyEmberDataSerializers,
 } from 'ember-cli-mirage';
 import { createServer } from 'miragejs';
+import appConfig from 'derdiedas/config/environment';
 
 export default function (config) {
   let finalConfig = {
@@ -47,4 +48,23 @@ function routes() {
 
   this.get('/questions/:id');
   this.patch('/questions/:id');
+
+  if (
+    appConfig.environment === 'production' ||
+    appConfig.environment === 'development'
+  ) {
+    this.get('/questions', (schema) => {
+      let questions = schema.questions.all();
+      let selected = [];
+
+      while (selected.length < 5) {
+        var rando = Math.floor(Math.random() * 3) + 1;
+        if (selected.indexOf(rando) === -1) {
+          selected.push(rando);
+        }
+      }
+
+      return schema.questions.find(selected);
+    });
+  }
 }
