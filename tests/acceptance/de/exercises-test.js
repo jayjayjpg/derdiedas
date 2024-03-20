@@ -118,7 +118,7 @@ module('Acceptance | de/exercises', function (hooks) {
     await fillIn('[data-test-question-form-input]', 'das');
     await click('[data-test-question-form-submit]');
 
-    assert.dom('[data-test-exercise-score]').includesText('0 %');
+    assert.dom('[data-test-exercise-score]').includesText('34 %');
 
     await click('[data-test-exercise-finish]');
 

@@ -1,22 +1,8 @@
 export default {
   titles: [
-    {
-      title: `Ich gehe in//$//.`,
-      answer: 'das',
-      target: 'Haus',
-      definedArticle: true,
-    },
-    {
-      title: `Ich schenke//$// einen Apfel.`,
-      answer: 'dem',
-      target: 'Lehrer',
-      definedArticle: true,
-    },
-    {
-      title: `Du siehst//$// auf der Straße.`,
-      answer: 'ein',
-      target: 'Auto',
-      definedArticle: false,
-    },
+    `Ich gehe in/das/Haus/.`,
+    `Ich schenke/dem/Lehrer/ einen Apfel.`,
+    `Du siehst/das/Auto/ auf der Straße.`,
+    `/Deine/Mutter/ arbeitet als Chefin bei Samsung.`,
   ],
 };

@@ -4,21 +4,24 @@ import QUESTIONS from './../../questions';
 export default Factory.extend({
   title(i) {
     let question = QUESTIONS.titles[i];
-    return question.title;
+    let title = question.replace(/\/\w.*\//i, '//$//');
+    return title;
   },
 
   target(i) {
     let question = QUESTIONS.titles[i];
-    return question.target;
+    let rawTarget = question.match(/\/\w.*\//i)[0];
+    return rawTarget.split('/')[2];
   },
 
   answer(i) {
     let question = QUESTIONS.titles[i];
-    return question.answer;
+    let rawTarget = question.match(/\/\w.*\//i)[0];
+    return rawTarget.split('/')[1];
   },
 
-  definedArticle(i) {
-    let question = QUESTIONS.titles[i];
-    return question.definedArticle;
+  definedArticle() {
+    let article = this.answer.toLowerCase();
+    return article.startsWith('d');
   },
 });
