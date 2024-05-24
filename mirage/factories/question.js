@@ -1,27 +1,40 @@
-import { Factory } from 'miragejs';
+import { Factory, trait } from 'miragejs';
 import QUESTIONS from './../../questions';
 
 export default Factory.extend({
+  type: 'definite_articles',
+  questionList() {
+    return QUESTIONS[this.type];
+  },
+
+  raw(i) {
+    console.log({ typ: this.type, qu: QUESTIONS[this.type] })
+    return this.questionList[i];
+  },
+
   title(i) {
-    let question = QUESTIONS.titles[i];
-    let title = question.replace(/\/\w.*\//i, '//$//');
+    let question = this.raw;
+    let title = question?.replace(/\/\w.*\//i, '//$//');
     return title;
   },
 
   target(i) {
-    let question = QUESTIONS.titles[i];
-    let rawTarget = question.match(/\/\w.*\//i)[0];
-    return rawTarget.split('/')[2];
+    let question = this.raw;
+    let rawTarget = question?.match(/\/\w.*\//i)[0];
+    return rawTarget?.split('/')[2];
   },
 
   answer(i) {
-    let question = QUESTIONS.titles[i];
-    let rawTarget = question.match(/\/\w.*\//i)[0];
-    return rawTarget.split('/')[1];
+    let question = this.raw;
+    let rawTarget = question?.match(/\/\w.*\//i)[0];
+    return rawTarget?.split('/')[1];
   },
 
-  definedArticle() {
-    let article = this.answer.toLowerCase();
-    return article.startsWith('d');
-  },
+  definite: trait({
+    type: 'definite_articles',
+  }),
+
+  indefinite: trait({
+    type: 'indefinite_articles',
+  }),
 });

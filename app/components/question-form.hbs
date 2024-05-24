@@ -2,7 +2,18 @@
   <p class="flex flex-col items-center my-8 space-y-8" data-test-question-form-prompt>
     <div>
       <label class="flex flex-col text-zinc-800 space-y-2" for={{this.formId}}>
-        <span class="text-zinc-50 bg-zinc-900 text-sm rounded-md p-2 my-4" data-test-question-form-hint>Use <b>{{if @question.definedArticle "der/die/das..." "ein/eine..."}}</b></span>
+        <span class="text-zinc-50 bg-zinc-900 text-sm rounded-md p-2 my-4" data-test-question-form-hint>Use
+          <b>
+            {{#if @question.definedArticle}}
+              der/die/das...
+              {{else}}
+                {{#if @question.undefiniteArticle}}
+                  ein/eine..."
+                {{else}}
+                  ???
+                {{/if}}
+            {{/if}}</b>
+        </span>
         <span class="text-lg">Type your answer</span>
       </label>
     </div>

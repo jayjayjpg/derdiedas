@@ -6,7 +6,7 @@ export default class ExercisesRoute extends Route {
   @service practiceSession;
 
   model() {
-    return this.store.findAll('question');
+    return this.store.query('question', { type: 'indefinite_articles' });
   }
 
   afterModel(model) {

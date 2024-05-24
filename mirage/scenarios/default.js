@@ -4,5 +4,6 @@ export default function (server) {
     This data will not be loaded in your tests.
   */
   // server.createList('post', 10);
-  server.createList('question', 120);
+  server.createList('question', 120, 'definite');
+  server.createList('question', 4, 'indefinite');
 }

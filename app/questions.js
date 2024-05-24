@@ -1,5 +1,5 @@
 export default {
-  titles: [
+  definite_articles: [
     `Ich gehe in/das/Haus/ .`,
     `Ich schenke/dem/Lehrer/ einen Apfel.`,
     `Du siehst/das/Auto/ auf der Straße.`,
@@ -121,4 +121,18 @@ export default {
     `Wir reden mit/den/Eltern/ über das Kind.`,
     `Sie verbindet/das/Kabel/ mit dem Telefon.`,
   ],
+
+  indefinite_articles: [
+    `Ich gehe in/ein/Haus/ .`,
+    `Ich schenke/einem/Lehrer/ einen Apfel.`,
+    `Man versteht/einen/Satz/ beim Lesen.`,
+    `Er versteht nur/eine/Sprache/ in Europa nicht.`,
+    `Ihr sitzt auf/einem/Stuhl/ und an einem großen Tisch.`,
+    `Wir fallen in/ein/Loch/ .`,
+    `Sie lesen/ein/Buch/ .`,
+    `Du brauchst/einen/Tag/ Urlaub.`,
+    `Wir brauchen/eine/Tasche/ , um den Einkauf nach Hause zu tragen.`,
+    `Ihr braucht sicher/eine/Karte/ .`,
+  ],
+
 };

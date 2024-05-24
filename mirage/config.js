@@ -53,17 +53,21 @@ function routes() {
     appConfig.environment === 'production' ||
     appConfig.environment === 'development'
   ) {
-    this.get('/questions', (schema) => {
+    this.get('/questions', (schema, req) => {
       let selected = [];
+      let type = req?.queryParams?.type || 'definite_articles';
+      let questions = schema.questions.where({ type });
+      let numOfQuestions = questions.length;
 
-      while (selected.length < 3) {
-        var rando = Math.floor(Math.random() * 120) + 1;
-        if (selected.indexOf(rando) === -1) {
-          selected.push(rando);
+     while (selected.length < 3) {
+        let rando = Math.floor(Math.random() * numOfQuestions);
+        let randoId = questions.models[rando].id;
+        if (selected.indexOf(randoId) === -1) {
+          selected.push(randoId);
         }
       }
 
-      return schema.questions.find(selected);
+      return schema.questions.where(qu => { return qu.type === type && selected.indexOf(qu.id) !== -1 });
     });
   }
 }
