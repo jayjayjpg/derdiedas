@@ -13,7 +13,7 @@
         border border-sm border-cerise
         disabled:bg-zinc-200 disabled:text-zinc-600 disabled:border-zinc-400"
         id={{this.formId}}
-        @value={{@promptAnswer}} disabled={{@showSolution}}
+        @value={{@promptAnswer}} disabled={{@showSolution}} autocomplete="off"
         onInput={{@onChange}} onKeyup={{this.submitByKeyboard}}
         data-test-question-form-input />
       <span>{{get this.questionPrompt "1"}}</span>
@@ -46,7 +46,7 @@
     </div>
     {{#unless @question.isCorrect}}
       <p class="mt-8" data-test-question-form-difference>
-        <span class="bg-orange-300 text-zinc-800 p-2 rounded-sm line-through" data-test-question-form-difference-current>{{@question.userAnswer}}</span>
+        <span class="text-orange-800 p-2 line-through decoration-2" data-test-question-form-difference-current>{{@question.userAnswer}}</span>
         <span class="bg-azure text-zinc-800 p-2 rounded-sm font-bold" data-test-question-form-difference-expected>{{@question.answer}}</span>
       </p>
     {{/unless}}

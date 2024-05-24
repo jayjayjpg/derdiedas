@@ -56,7 +56,7 @@ function routes() {
     this.get('/questions', (schema) => {
       let selected = [];
 
-      while (selected.length < 15) {
+      while (selected.length < 3) {
         var rando = Math.floor(Math.random() * 120) + 1;
         if (selected.indexOf(rando) === -1) {
           selected.push(rando);
