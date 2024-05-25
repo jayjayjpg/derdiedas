@@ -5,5 +5,5 @@ export default function (server) {
   */
   // server.createList('post', 10);
   server.createList('question', 120);
-  server.createList('indefinite-question', 4);
+  server.createList('indefinite-question', 50);
 }
