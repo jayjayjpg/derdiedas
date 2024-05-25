@@ -1,9 +1,11 @@
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import { isPresent } from '@ember/utils';
 
 export default class PracticeSessionService extends Service {
-  @tracked questions;
+  @tracked questions = [];
   @tracked currentId = 0;
+  @tracked isActive = false;
 
   get questionIds() {
     return this.questions.map((qu) => qu.id);
@@ -22,7 +24,7 @@ export default class PracticeSessionService extends Service {
   }
 
   get isLast() {
-    return this.currentId === this.numOfQuestions;
+    return isPresent(this.questions) && this.currentId === this.numOfQuestions;
   }
 
   get score() {
@@ -32,6 +34,15 @@ export default class PracticeSessionService extends Service {
     return (numOfCorrectQuestions / this.numOfQuestions) * 100;
   }
 
+  get type() {
+    return this.questions[0]?.type;
+  }
+
+  start(questions) {
+    this.questions = questions;
+    this.isActive = true;
+  }
+
   next() {
     this.currentId += 1;
   }
@@ -39,5 +50,6 @@ export default class PracticeSessionService extends Service {
   reset() {
     this.currentId = 0;
     this.questions = [];
+    this.isActive = false;
   }
 }

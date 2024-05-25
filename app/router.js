@@ -9,5 +9,7 @@ export default class Router extends EmberRouter {
 Router.map(function () {
   this.route('exercises', function () {
     this.route('exercise', { path: '/:exercise_id' });
+    this.route('definite');
+    this.route('indefinite');
   });
 });

@@ -134,5 +134,4 @@ export default {
     `Wir brauchen/eine/Tasche/ , um den Einkauf nach Hause zu tragen.`,
     `Ihr braucht sicher/eine/Karte/ .`,
   ],
-
 };

@@ -5,6 +5,8 @@ import {
 import { createServer } from 'miragejs';
 import appConfig from 'derdiedas/config/environment';
 
+const NUM_OF_QUESTION_PER_SESSION = 10;
+
 export default function (config) {
   let finalConfig = {
     ...config,
@@ -46,28 +48,47 @@ function routes() {
     return schema.questions.all();
   });
 
+  this.get('/indefinite-questions');
+
   this.get('/questions/:id');
+  this.get('/indefinite-questions/:id');
   this.patch('/questions/:id');
+  this.patch('/indefinite-questions/:id');
 
   if (
     appConfig.environment === 'production' ||
     appConfig.environment === 'development'
   ) {
-    this.get('/questions', (schema, req) => {
+    this.get('/questions', (schema) => {
       let selected = [];
-      let type = req?.queryParams?.type || 'definite_articles';
-      let questions = schema.questions.where({ type });
+      let questions = schema.questions.all();
       let numOfQuestions = questions.length;
 
-     while (selected.length < 3) {
-        let rando = Math.floor(Math.random() * numOfQuestions);
-        let randoId = questions.models[rando].id;
-        if (selected.indexOf(randoId) === -1) {
-          selected.push(randoId);
+      while (selected.length < NUM_OF_QUESTION_PER_SESSION) {
+        let rando = Math.floor(Math.random() * numOfQuestions) + 1;
+        if (selected.indexOf(rando) === -1) {
+          selected.push(rando);
         }
       }
 
-      return schema.questions.where(qu => { return qu.type === type && selected.indexOf(qu.id) !== -1 });
+      let result = schema.questions.find(selected);
+
+      return result;
+    });
+
+    this.get('/indefinite-questions', (schema) => {
+      let selected = [];
+      let questions = schema.indefiniteQuestions.all();
+      let numOfQuestions = questions.length;
+
+      while (selected.length < NUM_OF_QUESTION_PER_SESSION) {
+        let rando = Math.floor(Math.random() * numOfQuestions) + 1;
+        if (selected.indexOf(rando) === -1) {
+          selected.push(rando);
+        }
+      }
+
+      return schema.indefiniteQuestions.find(selected);
     });
   }
 }

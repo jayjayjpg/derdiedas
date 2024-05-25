@@ -7,7 +7,12 @@ export default class ExercisesExerciseRoute extends Route {
   @service practiceSession;
 
   model(params) {
-    return this.store.peekRecord('question', params.exercise_id);
+    let type = this.practiceSession.type;
+    if (type === 'definite_articles') {
+      return this.store.peekRecord('question', params.exercise_id);
+    } else if (type === 'indefinite_articles') {
+      return this.store.peekRecord('indefinite-question', params.exercise_id);
+    }
   }
 
   afterModel(model) {

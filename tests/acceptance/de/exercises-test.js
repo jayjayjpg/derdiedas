@@ -17,6 +17,16 @@ module('Acceptance | de/exercises', function (hooks) {
     assert.strictEqual(currentURL(), '/exercises');
     assert.dom('[data-test-exercise-go-back-home]').exists();
     assert.dom('[data-test-exercise-primer]').exists();
+    assert.dom('[data-test-exercise-choose-definite]').exists();
+  });
+
+  test('visiting /exercises/definite', async function (assert) {
+    await visit('/exercises');
+    await click('[data-test-exercise-choose-definite]');
+
+    assert.strictEqual(currentURL(), '/exercises/definite');
+    assert.dom('[data-test-exercise-go-back-home]').exists();
+    assert.dom('[data-test-exercise-primer]').exists();
     assert.dom('[data-test-exercise-start]').exists();
   });
 
@@ -24,6 +34,10 @@ module('Acceptance | de/exercises', function (hooks) {
     await visit('/exercises');
 
     assert.strictEqual(currentURL(), '/exercises');
+
+    await click('[data-test-exercise-choose-definite]');
+
+    assert.strictEqual(currentURL(), '/exercises/definite');
 
     await click('[data-test-exercise-start]');
 
@@ -36,6 +50,7 @@ module('Acceptance | de/exercises', function (hooks) {
 
     assert.strictEqual(currentURL(), '/exercises');
 
+    await click('[data-test-exercise-choose-definite]');
     await click('[data-test-exercise-start]');
 
     assert.strictEqual(currentURL(), '/exercises/1');
@@ -48,6 +63,7 @@ module('Acceptance | de/exercises', function (hooks) {
 
   test('a user can proceed to the next question once the form is submitted', async function (assert) {
     await visit('/exercises');
+    await click('[data-test-exercise-choose-definite]');
     await click('[data-test-exercise-start]');
 
     assert.strictEqual(currentURL(), '/exercises/1');
@@ -61,6 +77,7 @@ module('Acceptance | de/exercises', function (hooks) {
 
   test('a user sees a success state if an answer is answered correctly', async function (assert) {
     await visit('/exercises');
+    await click('[data-test-exercise-choose-definite]');
     await click('[data-test-exercise-start]');
 
     assert.strictEqual(currentURL(), '/exercises/1');
@@ -77,6 +94,7 @@ module('Acceptance | de/exercises', function (hooks) {
 
   test('a user sees an error explanation if an answer is answered incorrectly', async function (assert) {
     await visit('/exercises');
+    await click('[data-test-exercise-choose-definite]');
     await click('[data-test-exercise-start]');
 
     assert.strictEqual(currentURL(), '/exercises/1');
@@ -99,6 +117,7 @@ module('Acceptance | de/exercises', function (hooks) {
 
   test('a user can finish a practice session', async function (assert) {
     await visit('/exercises');
+    await click('[data-test-exercise-choose-definite]');
     await click('[data-test-exercise-start]');
 
     assert.strictEqual(currentURL(), '/exercises/1');
@@ -128,6 +147,7 @@ module('Acceptance | de/exercises', function (hooks) {
 
   test('exiting the session resets its state', async function (assert) {
     await visit('/exercises');
+    await click('[data-test-exercise-choose-definite]');
     await click('[data-test-exercise-start]');
 
     assert.strictEqual(currentURL(), '/exercises/1');
@@ -143,6 +163,7 @@ module('Acceptance | de/exercises', function (hooks) {
     assert.strictEqual(currentURL(), '/');
 
     await click('[data-test-navigation-exercise-de]');
+    await click('[data-test-exercise-choose-definite]');
     await click('[data-test-exercise-start]');
 
     assert.strictEqual(currentURL(), '/exercises/1');

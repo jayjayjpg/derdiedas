@@ -7,7 +7,7 @@
 
   {{outlet}}
 
-  {{#if this.practiceSession.isLast}}
+  {{#if this.showResult}}
     <div class="mt-8 border border-azure border-4 font-bold text-center text-zinc-900 p-4 rounded-md text-lg" data-test-exercise-score>Score: {{this.formattedScore}}</div>
     <div class="basis-1/4 text-center mt-8">
       <ActionButton

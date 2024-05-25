@@ -6,7 +6,7 @@
   <section class="my-8" data-test-exercise-primer data-test-exercise-definite-articles>
     <h1 class="text-2xl font-bold text-zinc-900">German definite articles</h1>
 
-    <p class="mt-4 mb-8">Practice using definite German articles</p>
+    <p class="mt-4 mb-8">Practice using definite German articles: <b>der, die, das</b></p>
 
     <div class="px-2 py-4 hidden">
       <article>
@@ -29,17 +29,31 @@
 
     <div class="mt-4">
       <ActionButton
-        @route="exercises.exercise"
-        @model={{this.practiceSession.currentQuestionId}}
-        data-test-exercise-start>
-        Start
+        @route="exercises.definite"
+        data-test-exercise-choose-definite>
+        Practice definite articles
       </ActionButton>
     </div>
+
   </section>
   <section data-test-exercise-primer data-test-exercise-indefinite-articles>
     <h1 class="text-2xl font-bold text-zinc-900">German indefinite articles</h1>
 
-    <p class="mt-4 mb-8">Practice using indefinite German articles</p>
+    <p class="mt-4 mb-8">Practice using indefinite German articles: <b>ein, eine</b></p>
+
+    <div class="mt-4">
+      <ActionButton
+        @route="exercises.indefinite"
+        data-test-exercise-choose-indefinite>
+        Practice indefinite articles
+      </ActionButton>
+    </div>
+  </section>
+
+  <section class="hidden" data-test-exercise-primer data-test-exercise-indefinite-articles>
+    <h1 class="text-2xl font-bold text-zinc-900">Beta Feature</h1>
+
+    <p class="mt-4 mb-8">Practice something new</p>
 
     <div class="mt-4">
       <ActionButton

@@ -10,8 +10,13 @@ export default class ExercisesController extends Controller {
     return `${Math.ceil(this.practiceSession.score)} %`;
   }
 
+  get showResult() {
+    return this.practiceSession.isLast && this.practiceSession.isActive;
+  }
+
   @action finish() {
     this.router.refresh('exercises');
     this.router.transitionTo('index');
+    this.practiceSession.reset();
   }
 }

@@ -28,6 +28,7 @@ module('Acceptance | a11y| de/exercises', function (hooks) {
 
   test('it is accessible: exercises/:id success state', async function (assert) {
     await visit('/exercises');
+    await click('[data-test-exercise-choose-definite]');
     await click('[data-test-exercise-start]');
     await fillIn('[data-test-question-form-input]', 'das');
     await click('[data-test-question-form-submit]');
@@ -39,6 +40,7 @@ module('Acceptance | a11y| de/exercises', function (hooks) {
 
   test('it is accessible: exercises/:id error state', async function (assert) {
     await visit('/exercises');
+    await click('[data-test-exercise-choose-definite]');
     await click('[data-test-exercise-start]');
     await fillIn('[data-test-question-form-input]', 'foo');
     await click('[data-test-question-form-submit]');
@@ -50,6 +52,7 @@ module('Acceptance | a11y| de/exercises', function (hooks) {
   test('it is accessible: exercises/:id result page', async function (assert) {
     await visit('/exercises');
     // start the practice session
+    await click('[data-test-exercise-choose-definite]');
     await click('[data-test-exercise-start]');
 
     // finish the practice session
