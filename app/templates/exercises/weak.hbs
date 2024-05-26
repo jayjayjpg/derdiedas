@@ -1,0 +1,64 @@
+{{page-title "Practice Definite Articles"}}
+
+<header>
+  <h1 class="text-3xl font-bold text-zinc-900">Practice German attributive adjectives with weak inflection: der gute, die gute, das gute</h1>
+</header>
+<section class="my-8" data-test-exercise-primer data-test-exercise-weak-articles>
+  <div class="py-4 space-y-8">
+    <article>
+      <h2 class="text-xl font-bold mb-2">Examples</h2>
+      <p>
+        <ul>
+          <li>Ich gehe in <b class="bg-azure text-zinc-800 px-1 py-0.5 rounded-sm mx-1">das große</b> Haus.</li>
+          <li>Das Kind gibt <b class="bg-azure text-zinc-800 px-1 py-0.5 rounded-sm mx-1">dem kleinen</b> Hund den Knochen.</li>
+          <li><b class="bg-azure text-zinc-800 px-1 py-0.5 rounded-sm mx-1">Die kluge</b> Frau fährt Motorrad.</li>
+          <li>Er weiß nicht, <b class="bg-azure text-zinc-800 px-1 py-0.5 rounded-sm mx-1">welchen grünen</b> Mantel er kaufen soll.</li>
+          <li>Sie kennt <b class="bg-azure text-zinc-800 px-1 py-0.5 rounded-sm mx-1">jedes einzelne</b> Detail seiner Geschichte.</li>
+        </ul>
+      </p>
+    </article>
+    <article>
+      <h2 class="text-xl font-bold mb-2">Declension tables</h2>
+      <p>Need a refresher before you start practicing? Check out
+        <a class="text-orange-800 underline decoration-2 font-semibold"
+          href="https://en.wikipedia.org/wiki/German_declension#Weak_inflection"
+          target="weakened">
+          this declension table for attributive adjectives (weak inflection)
+        </a>
+      !</p>
+      <p class="mt-8">This exercise will not only use der/die/das as articles, but also <b>adjectival pronouns</b>
+        in combination with descriptive attributes.
+
+        These adjectival pronouns, among others, include:
+
+        <ul class="my-4">
+          <li>aller/alle...</li>
+          <li>dieser/diese...</li>
+          <li>jeder/jede...</li>
+          <li>jener/jene...</li>
+          <li>mancher/manche...</li>
+          <li>solcher/solche...</li>
+          <li>welcher/welche...</li>
+        </ul>
+
+        You can decline any of these adjectival pronouns as you would decline der/die/das!
+
+        Need a refresher? Check out
+        <a class="text-orange-800 underline decoration-2 font-semibold"
+          href="https://en.wikipedia.org/wiki/German_declension#Adjectival_pronouns"
+          target="adjectives">
+          this declension table for adjectival pronouns!
+        </a>
+      !</p>
+    </article>
+  </div>
+
+  <div class="mt-4">
+    <ActionButton
+      @route="exercises.exercise"
+      @model={{this.practiceSession.currentQuestionId}}
+      data-test-exercise-start data-test-exercise-start-weak>
+      Start
+    </ActionButton>
+  </div>
+</section>

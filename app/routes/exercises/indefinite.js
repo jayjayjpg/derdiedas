@@ -1,16 +1,10 @@
-import Route from '@ember/routing/route';
+import BaseExerciseOverviewRoute from 'derdiedas/routes/exercises/definite';
 import { service } from '@ember/service';
 
-export default class ExercisesIndefiniteRoute extends Route {
+export default class ExercisesIndefiniteRoute extends BaseExerciseOverviewRoute {
   @service store;
-  @service practiceSession;
 
   model() {
     return this.store.findAll('indefinite-question');
-  }
-
-  afterModel(model) {
-    this.practiceSession.reset();
-    this.practiceSession.start(model);
   }
 }

@@ -3,7 +3,7 @@
   <header>
     <h1 class="text-3xl font-bold text-zinc-900">German practice</h1>
   </header>
-  <section class="my-8" data-test-exercise-primer data-test-exercise-definite-articles>
+  <section class="mt-8" data-test-exercise-primer data-test-exercise-definite-articles>
     <h1 class="text-2xl font-bold text-zinc-900">German definite articles</h1>
 
     <p class="mt-4 mb-8">Practice using definite German articles: <b>der, die, das</b></p>
@@ -36,7 +36,7 @@
     </div>
 
   </section>
-  <section data-test-exercise-primer data-test-exercise-indefinite-articles>
+  <section class="mt-8" data-test-exercise-primer data-test-exercise-indefinite-articles>
     <h1 class="text-2xl font-bold text-zinc-900">German indefinite articles</h1>
 
     <p class="mt-4 mb-8">Practice using indefinite German articles: <b>ein, eine</b></p>
@@ -49,11 +49,24 @@
       </ActionButton>
     </div>
   </section>
+  <section class="mt-8" data-test-exercise-primer data-test-exercise-weak-attributes>
+    <h1 class="text-2xl font-bold text-zinc-900">German attributive adjectives - weak inflection</h1>
 
-  <section class="hidden" data-test-exercise-primer data-test-exercise-indefinite-articles>
-    <h1 class="text-2xl font-bold text-zinc-900">Beta Feature</h1>
+    <p class="mt-4 mb-8">Practice the declension of attributes using weak inflection: <b>der gute, die gute, das gute</b></p>
 
-    <p class="mt-4 mb-8">Practice something new</p>
+    <div class="mt-4">
+      <ActionButton
+        @route="exercises.weak"
+        data-test-exercise-choose-weak>
+        Practice attributes (weak inflection)
+      </ActionButton>
+    </div>
+  </section>
+
+  <section class="mt-8" data-test-exercise-primer data-test-exercise-strong-attributes>
+    <h1 class="text-2xl font-bold text-zinc-900">German attributive adjectives - strong inflection</h1>
+
+    <p class="mt-4 mb-8">Practice the declination of attributes using strong inflection: <b>guter, gute, gutes (without preceding article)</b></p>
 
     <div class="mt-4">
       <ActionButton

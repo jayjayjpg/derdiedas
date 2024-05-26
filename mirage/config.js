@@ -47,13 +47,15 @@ function routes() {
   this.get('/questions', (schema) => {
     return schema.questions.all();
   });
-
   this.get('/indefinite-questions');
+  this.get('/weak-questions');
 
   this.get('/questions/:id');
   this.get('/indefinite-questions/:id');
+  this.get('/weak-questions/:id');
   this.patch('/questions/:id');
   this.patch('/indefinite-questions/:id');
+  this.patch('/weak-questions/:id');
 
   if (
     appConfig.environment === 'production' ||
@@ -89,6 +91,21 @@ function routes() {
       }
 
       return schema.indefiniteQuestions.find(selected);
+    });
+
+    this.get('/weak-questions', (schema) => {
+      let selected = [];
+      let questions = schema.weakQuestions.all();
+      let numOfQuestions = questions.length;
+
+      while (selected.length < NUM_OF_QUESTION_PER_SESSION) {
+        let rando = Math.floor(Math.random() * numOfQuestions) + 1;
+        if (selected.indexOf(rando) === -1) {
+          selected.push(rando);
+        }
+      }
+
+      return schema.weakQuestions.find(selected);
     });
   }
 }

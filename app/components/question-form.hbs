@@ -1,33 +1,27 @@
 <section class="flex flex-col items-center" data-test-question-form>
   <p class="flex flex-col items-center my-8 space-y-8" data-test-question-form-prompt>
-    <div>
-      <label class="flex flex-col text-zinc-800 space-y-2" for={{this.formId}}>
-        <span class="text-zinc-50 bg-zinc-900 text-sm rounded-md p-2 my-4" data-test-question-form-hint>Use
-          <b>
-            {{#if @question.definedArticle}}
-              der/die/das...
-              {{else}}
-                {{#if @question.undefiniteArticle}}
-                  ein/eine..."
-                {{else}}
-                  ???
-                {{/if}}
-            {{/if}}</b>
-        </span>
-        <span class="text-lg">Type your answer</span>
-      </label>
-    </div>
-    <div class="text-lg text-zinc-800">
-      <span>{{get this.questionPrompt "0"}}</span>
-      <Input
-        class="w-20 text-center rounded-md bg-fuchsia-50 focus:bg-white hover:bg-fuchsia-100
-        border border-sm border-cerise
-        disabled:bg-zinc-200 disabled:text-zinc-600 disabled:border-zinc-400"
-        id={{this.formId}}
-        @value={{@promptAnswer}} disabled={{@showSolution}} autocomplete="off"
-        onInput={{@onChange}} onKeyup={{this.submitByKeyboard}}
-        data-test-question-form-input />
-      <span>{{get this.questionPrompt "1"}}</span>
+    <div class="text-lg text-zinc-800 flex items-start">
+      <div class="flex items-center">
+        <span>{{get this.questionPrompt "0"}}</span>
+      </div>
+      <div class="flex flex-col justify-end items-center">
+        <Input
+          class="w-36 text-center rounded-md bg-fuchsia-50 focus:bg-white hover:bg-fuchsia-100
+          border border-sm border-cerise
+          disabled:bg-zinc-200 disabled:text-zinc-600 disabled:border-zinc-400"
+          id={{this.formId}}
+          @value={{@promptAnswer}} disabled={{@showSolution}} autocomplete="off"
+          onInput={{@onChange}} onKeyup={{this.submitByKeyboard}}
+          data-test-question-form-input />
+        <label class="flex flex-col text-zinc-800 space-y-2" for={{this.formId}}>
+          <span class="text-zinc-50 bg-zinc-900 text-sm rounded-md p-2 my-4" data-test-question-form-hint>Use
+            <b>{{@question.hint}}</b>
+          </span>
+        </label>
+      </div>
+      <div class="flex items-center">
+        <span>{{get this.questionPrompt "1"}}</span>
+      </div>
     </div>
   </p>
 

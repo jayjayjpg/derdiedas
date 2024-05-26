@@ -11,5 +11,6 @@ Router.map(function () {
     this.route('exercise', { path: '/:exercise_id' });
     this.route('definite');
     this.route('indefinite');
+    this.route('weak');
   });
 });

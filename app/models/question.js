@@ -18,7 +18,10 @@ export default class QuestionModel extends Model {
   }
 
   get isCorrect() {
-    return this.answer?.trim() === this.userAnswer?.trim();
+    return (
+      this.answer?.trim().toLowerCase() ===
+      this.userAnswer?.trim().toLowerCase()
+    );
   }
 
   get definedArticle() {
@@ -27,5 +30,9 @@ export default class QuestionModel extends Model {
 
   get undefiniteArticle() {
     return this.type === 'indefinite_articles';
+  }
+
+  get hint() {
+    return 'der/die/das...';
   }
 }

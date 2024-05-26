@@ -1,3 +1,16 @@
 {{page-title "Index"}}
 
+<div class="h-full flex justify-center items-center">
+  <div class="w-full h-full absolute -top-2 flex justify-center items-center">
+    <img class="h-full" src="assets/images/hp_cover.gif" alt="German man carrying a dozen of filled beer mug along a beer tent" />
+    <div class=" absolute flex items-center">
+      <ActionButton
+        class="z-10 text-3xl p-6"
+        @route="exercises.index"
+        data-test-exercise-home>
+        Start practicing
+      </ActionButton>
+    </div>
+  </div>
+</div>
 {{outlet}}

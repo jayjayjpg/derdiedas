@@ -8,11 +8,16 @@ export default class ExercisesExerciseRoute extends Route {
 
   model(params) {
     let type = this.practiceSession.type;
+    let modelName = 'question';
     if (type === 'definite_articles') {
-      return this.store.peekRecord('question', params.exercise_id);
+      modelName = 'question';
     } else if (type === 'indefinite_articles') {
-      return this.store.peekRecord('indefinite-question', params.exercise_id);
+      modelName = 'indefinite-question';
+    } else if (type === 'weak_attributes') {
+      modelName = 'weak-question';
     }
+
+    return this.store.peekRecord(modelName, params.exercise_id);
   }
 
   afterModel(model) {
